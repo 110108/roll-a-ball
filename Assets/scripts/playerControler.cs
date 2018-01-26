@@ -1,26 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class playerControler : MonoBehaviour {
 	
 	public float speed;
 	public float jumpforce;
 	public bool isGrounded;
-	public type wall;
+	public Text countText;
 	
+	private int count;
 	private Rigidbody rb;
 	
 	void Start ()
 	{
 		rb=GetComponent<Rigidbody>();
+		count=0;
+		SetCountText();
 	}
 	
 	void OnTriggerEnter (Collider other){
 		if(other.gameObject.CompareTag("pickup")){
-            other.gameObject.SetActive(false);
-			//count++;
-			//SetCountText();
+            		other.gameObject.SetActive(false);
+			count++;
+			SetCountText();
+		}
+	}
+	
+	void SetCountText(){
+		countText.text="Count: "+count.ToString ();
+		if(count>=20){
+			win
 		}
 	}
 	
@@ -38,7 +49,9 @@ public class playerControler : MonoBehaviour {
 		Vector3 movement=new Vector3 (moveHorizontal,0.0f,moveVertical);
 		rb.AddForce(movement*speed);
 		
-		if(count==21){
-			wall
+		public 
+		if(count==19){
+			
+		}
 	}
 }
