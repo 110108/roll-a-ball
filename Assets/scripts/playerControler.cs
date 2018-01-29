@@ -11,12 +11,14 @@ public class playerControler : MonoBehaviour {
 	public Text countText;
 	
 	private int count;
+	private Vector3 reset;
 	private Rigidbody rb;
 	
 	void Start ()
 	{
 		rb=GetComponent<Rigidbody>();
 		count=0;
+		reset=transform.position;
 		SetCountText();
 	}
 	
@@ -31,7 +33,7 @@ public class playerControler : MonoBehaviour {
 	void SetCountText(){
 		countText.text="Count: "+count.ToString ();
 		if(count>=20){
-			win
+			//win
 		}
 	}
 	
@@ -49,7 +51,10 @@ public class playerControler : MonoBehaviour {
 		Vector3 movement=new Vector3 (moveHorizontal,0.0f,moveVertical);
 		rb.AddForce(movement*speed);
 		
-		public 
+		if(transform.position.y<-5){
+			//moveto reset
+		}
+		 
 		if(count==19){
 			
 		}
